@@ -7,9 +7,9 @@
 <div style="float:left">
 <image-cropper 
 [imageChangedEvent]="imgChangedEvent" 
-[aspectRatio]="4/4" 
-[maintainAspectRatio]="true"
-[resizeToWidth]="256"
+[maintainAspectRatio]="false"
+[onlyScaleDown]="true"
+[resizeToWidth]="512"
 format="png"
 (imageCropped)="cropImg($event)"
 (imageLoaded)="imgLoad()"
