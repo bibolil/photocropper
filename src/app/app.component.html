@@ -1,10 +1,27 @@
 <div class="container mt-5 text-center">
 <h3>Angular Image crop</h3>
 <div class="col-md-12">
-  <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." accept=".jpg,.jpeg,.png" />
+  <input type="file" (change)="fileChangeEvent($event)" />
 </div>
 
 <div style="float:left">
-<img-cropper></img-cropper>
+<image-cropper 
+[imageChangedEvent]="imgChangedEvent" 
+[aspectRatio]="4/4" 
+[maintainAspectRatio]="true"
+[resizeToWidth]="256"
+format="png"
+(imageCropped)="cropImg($event)"
+(imageLoaded)="imgLoad()"
+(cropperReady)="initCropper()"
+(loadImageFailed)="loadImageFailed()"
+>
+</image-cropper>
 </div>
+
+<div style="float:left">
+  <h4>Preview</h4>
+  <img [src]="cropImagePreview" />
+</div>
+
 </div>
